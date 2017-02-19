@@ -1,0 +1,15 @@
+{
+  "name": "js-cookie-editor",
+  "version": "1.0.0",
+  "description": "Cookie editor bookmarklet",
+  "main": "",
+  "scripts": {
+    "start": "./node_modules/http-server/bin/http-server -a localhost -p 8888",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vasil.bachev@holidayextras.com",
+  "license": "MIT",
+  "dev-dependencies": {
+    "http-server": "^0.9.0"
+  }
+}

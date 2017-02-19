@@ -1,0 +1,83 @@
+.ccc-wrapper {
+	position: fixed;
+  z-index: 999999;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 20px;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #333;
+	background: rgba(0,0,0,.3);
+	overflow: auto;
+}
+
+.ccc-popup {
+	margin: 0 auto;
+	max-width: 400px;
+	box-sizing: border-box;
+	background: #fff;
+	border: 1px solid #888;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.ccc-title {
+  padding: 10px 15px;
+  margin: 0;
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.ccc-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ccc-item:hover {
+  background-color: #f4f4f4;
+}
+
+.ccc-name {
+  display: block;
+  padding: 10px 15px;
+  margin: 0;
+  border-top: 1px solid #ddd;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.ccc-toggle {
+  display: none;
+}
+
+.ccc-toggle:checked ~ .ccc-name {
+  background: #fafafa;
+  color: #000;
+}
+
+.ccc-contents {
+  display: none;
+  padding: 0 15px 15px;
+}
+
+.ccc-toggle:checked ~ .ccc-contents {
+  background: #fafafa;
+  display: block;
+}
+
+.ccc-contents input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 0 0 10px;
+}
+
+.ccc-contents button {
+  width: 100%;
+  margin-bottom: 5px;
+}

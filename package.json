@@ -9,7 +9,7 @@
   },
   "author": "vasil.bachev@holidayextras.com",
   "license": "MIT",
-  "dev-dependencies": {
+  "devDependencies": {
     "http-server": "^0.9.0"
   }
 }

@@ -1,8 +1,8 @@
 'use strict';
 (function() {
   var _container = null;
-  var _baseUrl = 'http://localhost:8080/';
-  // var _baseUrl = 'https://rawgit.com/vbachevhx/js-cookie-editor/master/';
+  // var _baseUrl = 'http://localhost:8080/';
+  var _baseUrl = 'https://rawgit.com/vbachev/js-cookie-editor/master/';
   var _tests = [];
   var _templates = {
     list: '' +

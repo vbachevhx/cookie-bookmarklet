@@ -6,7 +6,7 @@
 	bottom: 0;
 	left: 0;
 	padding: 20px;
-  font-family: sans-serif;
+  font-family: monospace;
   font-size: 14px;
   color: #333;
 	background: rgba(0,0,0,.3);
@@ -27,7 +27,6 @@
   padding: 10px 15px;
   margin: 0;
   text-align: center;
-  font-family: cursive;
   font-weight: bold;
   font-size: 32px;
 }
@@ -58,11 +57,12 @@
 .ccc-toggle:checked ~ .ccc-name {
   background: #fafafa;
   color: #000;
+  font-weight: bold;
 }
 
 .ccc-contents {
   display: none;
-  padding: 0 15px 15px;
+  padding: 5px 15px 10px;
 }
 
 .ccc-toggle:checked ~ .ccc-contents {
@@ -70,14 +70,27 @@
   display: block;
 }
 
-.ccc-contents input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 5px;
-  margin: 0 0 10px;
+.ccc-variant-radio {
+  float: left;
+  margin: 12px 0 0 10px;
 }
 
-.ccc-contents button {
-  width: 100%;
-  margin-bottom: 5px;
+.ccc-variant {
+  display: block;
+  padding: 10px 15px 10px 30px;
+  margin: 0 0 5px;
+  background: #eee;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.ccc-variant-radio:checked + .ccc-variant {
+  font-weight: bold;
+  background: #ddd;
+  color: #000;
+}
+
+.ccc-weight {
+  float: right;
+  font-style: italic;
 }

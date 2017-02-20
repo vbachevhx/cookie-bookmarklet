@@ -3,11 +3,12 @@
   var _container = null;
   // var _baseUrl = 'http://localhost:8080/';
   var _baseUrl = 'https://rawgit.com/vbachev/js-cookie-editor/master/';
+  var _cookiePrefix = 'abbaVariant_';
   var _tests = [];
   var _templates = {
     list: '' +
       '<div class="ccc-popup">' +
-        '<div class="ccc-title">Cookie Editor</div>' +
+        '<div class="ccc-title">ABBA Editor</div>' +
         '<ul class="ccc-list">{{items}}</ul>' +
       '</div>',
 
@@ -32,11 +33,8 @@
   };
 
   function getTests() {
-    if (!window.hx || !hx.abba) {
-      return [];
-    }
-
     var tests = [];
+    if (!window.hx || !hx.abba) return tests;
     for (var key in hx.abba._tests) {
       tests.push({
         name: key,
@@ -54,13 +52,7 @@
   }
 
   function setCookie(name, value) {
-    document.cookie = name + '=' + value;
-  }
-
-  function deleteCookie(name) {
-    if(confirm('Will delete cookie named ' + name)){
-      document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    }
+    document.cookie = _cookiePrefix + encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; Path=/; Domain=' + document.domain + ';';
   }
 
   function create() {
@@ -92,15 +84,16 @@
     var itemsMarkup = itemsMarkup = _templates.noTests;
     if (_tests.length) {
       itemsMarkup = _tests.reduce(function(markup, test, index) {
-        var variantsMarkup = test.variants.reduce(function(vMarkup, variant, variantIndex) {
+        var variantsMarkup = test.variants.reduce(function(vMarkup, variant, vIndex) {
           return vMarkup + parseTemplate(_templates.variant, {
             variantId: 'cccItem' + index + 'v' + vIndex,
             name: test.name,
             value: variant.value,
-            weight: variant.weight,
-            selected: variant.chosen ? 'selected' : ''
+            weight: '' + variant.weight + '%',
+            selected: variant.chosen ? 'checked' : ''
           });
         }, '');
+
         return markup + parseTemplate(_templates.item, {
           toggleId: 'cccItem' + index,
           name: test.name,
@@ -123,21 +116,14 @@
   	if (event.target === event.currentTarget) {
       // click on the container element (gray overlay)
   		destroy();
-  	} else if (event.target.classList.contains('ccc-button')) {
+  	} else if (event.target.classList.contains('ccc-variant')) {
       handleButtonClick(event.target);
     }
   }
 
   function handleButtonClick(button) {
-    var input = button.parentNode.querySelectorAll('.ccc-value-input')[0];
-    if (button.classList.contains('ccc-update')) {
-      // click on the Update button
-      setCookie(input.name, input.value);
-    } else if (button.classList.contains('ccc-delete')) {
-      // click on the Delete button
-      deleteCookie(input.name);
-    }
-    destroy();
+    var input = document.getElementById(button.getAttribute('for'));
+    setCookie(input.name, input.value);
   }
 
   create();

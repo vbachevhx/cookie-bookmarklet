@@ -4,7 +4,7 @@ This is a simple and limited developer tool for editing cookies on smartphones a
 
 ## Limitations
 
-The tool uses the {{document.cookie}} getter/setter for all its interactions with cookies. This API is limited due to browser security reasons - e.g. much more limited than browser extensions.
+The tool uses the `document.cookie` getter/setter for all its interactions with cookies. This API is limited due to browser security reasons - e.g. much more limited than browser extensions.
 
 Known limitations:
 

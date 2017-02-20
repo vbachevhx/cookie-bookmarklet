@@ -52,7 +52,7 @@
   }
 
   function setCookie(name, value) {
-    document.cookie = _cookiePrefix + encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; Path=/; Domain=' + document.domain + ';';
+    document.cookie = _cookiePrefix + encodeURIComponent(name) + '=' + encodeURIComponent(value);
   }
 
   function create() {

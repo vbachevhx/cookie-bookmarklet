@@ -47,6 +47,7 @@
   margin: 0;
   border-top: 1px solid #ddd;
   cursor: pointer;
+  font-weight: normal;
   word-break: break-all;
 }
 
@@ -72,7 +73,7 @@
 
 .ccc-variant-radio {
   float: left;
-  margin: 12px 0 0 10px;
+  margin: 12px 0 0 10px!important;
 }
 
 .ccc-variant {
@@ -80,6 +81,7 @@
   padding: 10px 15px 10px 30px;
   margin: 0 0 5px;
   background: #eee;
+  font-weight: normal;
   border-radius: 4px;
   cursor: pointer;
 }

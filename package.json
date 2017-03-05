@@ -1,15 +1,32 @@
 {
-  "name": "js-cookie-editor",
+  "name": "cookie-bookmarklet",
   "version": "1.0.0",
   "description": "Cookie editor bookmarklet",
-  "main": "",
-  "scripts": {
-    "start": "./node_modules/http-server/bin/http-server -a localhost -p 8888",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "vasil.bachev@holidayextras.com",
   "license": "MIT",
-  "dev-dependencies": {
-    "http-server": "^0.9.0"
+  "main": "cookie_bookmarklet.js",
+  "scripts": {
+    "start": "npm run build & npm run watch & npm run server",
+    "build": "npm run build:js & npm run build:indexjs & npm run build:css",
+    "build:js": "browserify ./src/js/cookie_bookmarklet.js > ./dist/cookie_bookmarklet.js",
+    "build:indexjs": "browserify ./src/js/index.js > ./dist/index.js",
+    "build:css": "node-sass ./src/css --output ./dist",
+    "watch": "watch 'npm run build' ./src",
+    "server": "beefy --cwd ./ --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vbachevhx/cookie-bookmarklet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vbachevhx/cookie-bookmarklet/issues"
+  },
+  "homepage": "https://github.com/vbachevhx/cookie-bookmarklet#readme",
+  "devDependencies": {
+    "beefy": "^2.1.8",
+    "browserify": "^14.1.0",
+    "node-sass": "^4.5.0",
+    "watch": "^1.0.2"
   }
 }

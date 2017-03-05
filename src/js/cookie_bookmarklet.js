@@ -1,8 +1,9 @@
 'use strict';
+
 (function() {
+
+  var _baseUrl = require('./config').url; 
   var _container = null;
-  // var _baseUrl = 'http://localhost:8888/';
-  var _baseUrl = 'https://rawgit.com/vbachevhx/js-cookie-editor/master/';
   var _cookies = [];
   var _templates = {
     list: '' +
@@ -127,4 +128,5 @@
   }
 
   create();
+  
 })();
